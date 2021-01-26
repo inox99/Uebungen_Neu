@@ -3,6 +3,35 @@ public class Artikel {
     private String art;
     private int bestand;
     private double preis;
+
+
+    public Artikel(){
+    };
+
+    public Artikel(int artikelNr, String art){
+        this(artikelNr, art, 0);
+    }
+
+    public Artikel(int artikelNr, String art, int bestand){
+        this(artikelNr, art, bestand, 0);
+    }
+
+    public Artikel(int artikelNr, String art, int bestand, double preis){
+        if (artikelNr < 10000 && artikelNr > 999){
+            this.artikelNr = artikelNr;
+        } else {
+            throw new IllegalStateException("Artikelnummer ist nicht vierstellig");
+        }
+        if (art != null){
+            this.art = art;
+        } else {
+            throw new IllegalStateException("Die Bezeichnung ist null");
+        }
+        setBestand(bestand);
+
+        setPreis(preis);
+        
+    }
     
     public void bucheAbgang(int menge){
         if(menge < 0){
@@ -63,42 +92,5 @@ public class Artikel {
     public String toString(){
         return "Artikelnummer: " + artikelNr + "   Bezeichnung: " + art + "   Bestand: " + bestand + "  Preis: " + preis;
     }
-
-
-    public Artikel(int artikelNr, String art, int bestand){
-        if (artikelNr < 10000 && artikelNr > 999){
-            this.artikelNr = artikelNr;
-        } else {
-            throw new IllegalStateException("Artikelnummer ist nicht vierstellig");
-        }
-        if (art != null){
-            this.art = art;
-        } else {
-            throw new IllegalStateException("Die Bezeichnung ist null");
-        }
-        setBestand(bestand);
-    }
-
-    public Artikel(int artikelNr, String art, int bestand, double preis){
-        if (artikelNr < 10000 && artikelNr > 999){
-            this.artikelNr = artikelNr;
-        } else {
-            throw new IllegalStateException("Artikelnummer ist nicht vierstellig");
-        }
-        if (art != null){
-            this.art = art;
-        } else {
-            throw new IllegalStateException("Die Bezeichnung ist null");
-        }
-        setBestand(bestand);
-
-        setPreis(preis);
-        
-    }
-
-    public Artikel(int artikelNr, String art){
-        this(artikelNr, art, 0);
-    }
-
 
 }
