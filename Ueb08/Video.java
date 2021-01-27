@@ -12,7 +12,7 @@ public class Video extends Artikel {
         if (spieldauer == 0) {
             throw new IllegalArgumentException("Spieldauer darf nicht 0 sein");
         }
-        if (titel == null || titel.isBlank()) {
+        if (titel == null || titel.trim().isEmpty()) {
             throw new IllegalArgumentException("Titel darf nicht null sein");
         }
         this.titel = titel;
@@ -38,9 +38,9 @@ public class Video extends Artikel {
         return jahr;
     }
 
-  @Override
-  public String toString() {
-    String s =  String.format("Titel: %s Spieldauer: %d Jahr: %d", titel, spieldauer, jahr);
-    return super.toString() + s;
-  }
+    @Override
+    public String toString() {
+        String s = String.format("Titel: %s Spieldauer: %d Jahr: %d", titel, spieldauer, jahr);
+        return super.toString() + s;
+    }
 }

@@ -7,10 +7,10 @@ public class CD extends Artikel {
     CD(int artikelNr, int bestand, double preis, String interpret, String titel, int anzahlTitel) {
         super(artikelNr, "Medien", bestand, preis);
 
-        if (interpret == null) {
+        if (interpret == null || titel.trim().isEmpty()) {
             throw new IllegalArgumentException("Kein Interpret");
         }
-        if (titel == null) {
+        if (titel == null || titel.trim().isEmpty()) {
             throw new IllegalArgumentException("Kein Titel");
         }
         if (anzahlTitel < 1) {

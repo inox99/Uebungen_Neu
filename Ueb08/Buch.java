@@ -8,13 +8,13 @@ public class Buch extends Artikel {
 
         super(artikelNr, "Medien", bestand, preis);
 
-        if (titel == null) {
+        if (titel == null || titel.trim().isEmpty()) {
             throw new IllegalStateException("Kein Name angegeben");
         }
-        if (autor == null) {
+        if (autor == null || titel.trim().isEmpty()) {
             throw new IllegalStateException("Kein Autor angegeben");
         }
-        if (verlag == null) {
+        if (verlag == null || titel.trim().isEmpty()) {
             throw new IllegalStateException("Kein Verlag angegeben");
         }
 
