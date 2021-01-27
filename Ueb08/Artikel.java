@@ -71,12 +71,19 @@ public class Artikel {
             throw new IllegalStateException("Bestand ist kleiner 0");
         }
     }
+
+    public void setArt(String art){
+        if ( art == null){
+            throw new IllegalStateException("Art ist null");
+        }
+        this.art = art.trim();
+    }
     
     public void setPreis(double neuerPreis){
-        if (preis < 0){
-            throw new IllegalStateException();
+        if (preis <= 0){
+            throw new IllegalStateException("Preis ist kleiner oder 0");
         } else {
-            preis = neuerPreis;
+            this.preis = Math.round(preis * 100) / 100;
         }
     }
 
@@ -91,6 +98,10 @@ public class Artikel {
     @Override
     public String toString(){
         return "Artikelnummer: " + artikelNr + "   Bezeichnung: " + art + "   Bestand: " + bestand + "  Preis: " + preis;
+    }
+
+    public String getBeschreibung(){
+        return art;
     }
 
 }

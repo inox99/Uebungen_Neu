@@ -1,83 +1,47 @@
-/**
- * CD
- */
 public class CD extends Artikel {
 
-    private int artikelNr;
-    private int bestand;
-    private double preis;
     private String interpret;
     private String titel;
     private int anzahlTitel;
 
-
-
     CD(int artikelNr, int bestand, double preis, String interpret, String titel, int anzahlTitel) {
-        if (artikelNr < 100 || artikelNr > 9999) {
-            throw new IllegalArgumentException("Artikelnummer nicht 4-stellig");
-        }
-        if (bestand < 0) {
-            throw new IllegalArgumentException("Bestand ist kleiner 0");
-        }
-        if (preis < 0) {
-            throw new IllegalArgumentException("Preis ist kleiner 0");
-        }
-        if(interpret == null){
+        super(artikelNr, "Medien", bestand, preis);
+
+        if (interpret == null) {
             throw new IllegalArgumentException("Kein Interpret");
         }
-        if(titel == null){
+        if (titel == null) {
             throw new IllegalArgumentException("Kein Titel");
         }
-        if(anzahlTitel < 1){
+        if (anzahlTitel < 1) {
             throw new IllegalArgumentException("Keine Titel");
         }
 
-        this.artikelNr = artikelNr;
-        this.bestand = bestand;
-        this.preis = preis;
         this.interpret = interpret;
         this.titel = titel;
         this.anzahlTitel = anzahlTitel;
     }
 
-    public int getArtikelNummer(){
-        return artikelNr;
+    @Override
+    public String getBeschreibung() {
+        return interpret + ": " + titel;
     }
 
-    public int getBestand(){
-        return bestand;
-    }
-
-    public double getPreis(){
-        return preis;
-    }
-
-    public String getTitel(){
+    public String getTitel() {
         return titel;
     }
 
-    public String getInterpret(){
+    public String getInterpret() {
         return interpret;
     }
 
-    public void setPreis(double preisNeu){
-        if(preisNeu < 0){
-            throw new IllegalArgumentException("Neuer Preis kleiner 0")
-        }
-        preis = preisNeu;
+    public int getAnzahlTitel() {
+        return anzahlTitel;
     }
 
-    public String toString(){
-        String s = "Artikelnummer: " + artikelNr + " \n" +
-                   "Bestand: " + bestand + "\n" +
-                   "Preis: " + preis + "\n" +
-                   "Interpret: " + interpret + "\n" +
-                   "Titel: " + titel + "\n" +
-                   "Anzahltitel: " + anzahlTitel;
-    
-        return s;
+    public String toString() {
+        String s = String.format("Titel: %s Interpret: %s Anzahl Musiktitel: %d", titel, interpret, anzahlTitel);
+        return super.toString() + s;
     }
-
-    
 
 }

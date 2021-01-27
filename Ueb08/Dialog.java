@@ -15,6 +15,12 @@ public class Dialog {
         return stringEingabe;
     }
 
+    public double leseDouble(){
+        Scanner input = new Scanner(System.in);
+        double doubleEingabe = input.nextDouble();
+        return doubleEingabe;
+    }
+
     public int leseArtikelNr(){
         System.out.print("Artikelnummer: ");
         int geleseneArtikelNr = leseInt();
@@ -43,6 +49,17 @@ public class Dialog {
         System.out.print("Auswahl: ");
         int geleseneNutzerEingabe = leseInt();
         return geleseneNutzerEingabe;
+    }
+
+    public double lesePreis(){
+        System.out.print("Preis: ");
+        double gelesenerPreis = leseDouble();
+        return gelesenerPreis;
+
+    }
+
+    public Artikel kontruiereArtikel4(){
+        return new Artikel(leseArtikelNr(), leseBezeichnung(), leseBestand(), lesePreis());
     }
 
     public Artikel konstruiereArtikel3(){
@@ -75,9 +92,9 @@ public class Dialog {
             try {
                 eingabe = leseNutzerEingabe();
                 if(eingabe == ARTIKELMIT){
-                a1 = konstruiereArtikel3();
+                a1 = kontruiereArtikel4();
                 } else if (eingabe == ARTIKELOHNE){
-                a1 = konstruiereArtikel2();
+                a1 = konstruiereArtikel3();
                 } else if (eingabe == ZUBUCHEN){
                     if(a1 != null){
                         a1.bucheZugang(leseMenge());
