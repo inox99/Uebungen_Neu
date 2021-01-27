@@ -1,21 +1,20 @@
-public class Buch extends Artikel{
-    
+public class Buch extends Artikel {
+
     String titel;
     String autor;
     String verlag;
-    
-    
-    public Buch(int artikelNr, int bestand, double preis, String autor, String titel, String verlag){
+
+    public Buch(int artikelNr, int bestand, double preis, String autor, String titel, String verlag) {
 
         super(artikelNr, "Medien", bestand, preis);
 
-        if(titel == null){
+        if (titel == null) {
             throw new IllegalStateException("Kein Name angegeben");
         }
-        if(autor == null){
+        if (autor == null) {
             throw new IllegalStateException("Kein Autor angegeben");
         }
-        if(verlag == null){
+        if (verlag == null) {
             throw new IllegalStateException("Kein Verlag angegeben");
         }
 
@@ -25,24 +24,24 @@ public class Buch extends Artikel{
     }
 
     @Override
-    public String getBeschreibung(){
+    public String getBeschreibung() {
         return autor + ": " + titel;
     }
 
-    public String getTitel(){
+    public String getTitel() {
         return titel;
     }
 
-    public String getAutor(){
+    public String getAutor() {
         return autor;
     }
 
-    public String getVerlag(){
+    public String getVerlag() {
         return verlag;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String s = String.format("Titel: %s Autor: %s Verlag: %s", titel, autor, verlag);
         return super.toString() + s;
     }
