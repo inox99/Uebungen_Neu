@@ -5,8 +5,7 @@ public class Artikel {
    private double preis;
 
    public Artikel() {
-      // >> das setzen von Attributen auf 0 (null) ist eigentlich unnötig, da java das
-      // automatisch macht
+      // >> das setzen von Attributen auf 0 (null) ist eigentlich unnötig, da java das automatisch macht
       this.art = null;
       this.artikelNr = 0;
       this.bestand = 0;
