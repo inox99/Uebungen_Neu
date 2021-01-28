@@ -14,6 +14,7 @@ public class Artikel {
    };
 
    public Artikel(int artikelNr) {
+      this();
       if (artikelNr < 10000 && artikelNr > 999) {
          this.artikelNr = artikelNr;
       } else {
@@ -22,9 +23,8 @@ public class Artikel {
    }
 
    public Artikel(int artikelNr, String art) {
-      this();
+      this(artikelNr);
       setArt(art);
-      this.artikelNr = artikelNr;
    }
 
    public Artikel(int artikelNr, String art, int bestand) {
@@ -114,9 +114,9 @@ public class Artikel {
 
    public void setPreis(double neuerPreis) {
       if (neuerPreis <= 0) {
-         throw new IllegalStateException("Preis ist kleiner oder 0");
+         throw new IllegalStateException("Preis ist kleiner oder = 0");
       } else {
-         this.preis = Math.round(neuerPreis * 100) / 100;
+         this.preis = Double.valueOf(Math.round(neuerPreis * 100)) / 100;
       }
    }
 

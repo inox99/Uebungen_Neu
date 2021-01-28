@@ -40,7 +40,7 @@ public class CD extends Artikel {
     }
 
     public String toString() {
-        String s = String.format("Titel: %s Interpret: %s Anzahl Musiktitel: %d", titel, interpret, anzahlTitel);
+        String s = String.format(" Titel: %s Interpret: %s Anzahl Musiktitel: %d", titel, interpret, anzahlTitel);
         return super.toString() + s;
     }
 

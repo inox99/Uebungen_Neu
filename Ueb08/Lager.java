@@ -117,18 +117,37 @@ public class Lager {
       System.out.println(s);
    }
 
-   @Override
-   public String toString() {
-      String s = ("Artikelnummer \t Beschreibung \t Preis \t Bestand \t Gesamtpreis\n");
+   public void ausgebenBestandsListe() {
+      System.out.printf("%-6s %-45s %10s  %-10s %9s\n", "ArtNr", "Beschreibung", "Preis", "Bestand", "Gesamt");
       double gesamtPreis = 0;
       for (Artikel artikel : lager) {
          if (artikel != null) {
             gesamtPreis += artikel.getBestand() * artikel.getPreis();
-            s += String.format("%d \t %s \t %f \t %d \t %f \n", artikel.getArtikelNr(), artikel.getBeschreibung(),
+            System.out.printf("%5d  %-45s %10.2f %8d %12.2f\n", artikel.getArtikelNr(), artikel.getBeschreibung(),
                   artikel.getPreis(), artikel.getBestand(), artikel.getBestand() * artikel.getPreis());
+         }
+      }
+      System.out.printf("%-77s%8.2f\n", "Gesamtwert", gesamtPreis);
+   }
+
+   @Override
+   public String toString() {
+      // String s = "Artikelnummer \t Beschreibung \t Preis \t Bestand \t
+      // Gesamtpreis\n";
+      String s = "";
+      double gesamtPreis = 0;
+      for (Artikel artikel : lager) {
+         if (artikel != null) {
+            gesamtPreis += artikel.getBestand() * artikel.getPreis();
+            // s += String.format("%d \t %s \t %f \t %d \t %f \n", artikel.getArtikelNr(),
+            // artikel.getBeschreibung(),
+            // artikel.getPreis(), artikel.getBestand(), artikel.getBestand() *
+            // artikel.getPreis());
+            s += artikel.toString() + "\n";
          }
       }
       s += ("Gesamtpreis: " + gesamtPreis);
       return (s);
    }
+
 }

@@ -39,7 +39,7 @@ public class Video extends Artikel {
 
    @Override
    public String toString() {
-      String s = String.format("Titel: %s Spieldauer: %d Jahr: %d", titel, spieldauer, jahr);
+      String s = String.format(" Titel: %s Spieldauer: %d Jahr: %d", titel, spieldauer, jahr);
       return super.toString() + s;
    }
 }

@@ -42,7 +42,7 @@ public class Buch extends Artikel {
 
     @Override
     public String toString() {
-        String s = String.format("Titel: %s Autor: %s Verlag: %s", titel, autor, verlag);
+        String s = String.format(" Titel: %s Autor: %s Verlag: %s", titel, autor, verlag);
         return super.toString() + s;
     }
 
