@@ -115,6 +115,7 @@ public class Artikel {
       if (neuerPreis <= 0) {
          throw new IllegalStateException("Preis ist kleiner oder = 0");
       } else {
+         //this.preis = Math.round(neuerPreis * 100) / 100.0;
          this.preis = Double.valueOf(Math.round(neuerPreis * 100)) / 100;
       }
    }

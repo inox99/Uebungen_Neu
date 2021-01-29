@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Dialog {
 
     public int leseInt(){
