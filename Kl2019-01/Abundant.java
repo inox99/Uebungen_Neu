@@ -21,6 +21,6 @@ public class Abundant {
     public static void main(String[] args) {
         Abundant a = new Abundant();
 
-        System.out.println(a.abundant(10));
+        System.out.println(a.abundant(12));
     }
 }
