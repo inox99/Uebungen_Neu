@@ -1,4 +1,7 @@
 public class Lager {
+   // siehe
+   // @Override
+   // public String toString() {
 
    private Artikel[] lager;
 
@@ -139,11 +142,31 @@ public class Lager {
       for (Artikel artikel : lager) {
          if (artikel != null) {
             gesamtPreis += artikel.getBestand() * artikel.getPreis();
-            // s += String.format("%d \t %s \t %f \t %d \t %f \n", artikel.getArtikelNr(),
-            // artikel.getBeschreibung(),
-            // artikel.getPreis(), artikel.getBestand(), artikel.getBestand() *
-            // artikel.getPreis());
-            s += artikel.toString() + "\n";
+
+            {// block A
+               s += artikel.toString() + "\n";
+            }
+            // gäbe es keine Klassen und Vererbung müsste hier stehen:
+            {// block B
+               if (artikel.getClass() == CD.class) {
+                  CD cd = (CD) artikel;
+                  s += cd.toString() + "\n";
+               }
+               if (artikel.getClass() == Buch.class) {
+                  Buch buch = (Buch) artikel;
+                  s += buch.toString() + "\n";
+               }
+               if (artikel.getClass() == Video.class) {
+                  Video video = (Video) artikel;
+                  s += video.toString() + "\n";
+               }
+            }
+            // Block A und Block B machen das gleiche (lässt man das so stehen wird's halt doppelt gemacht)
+            // Block A ist nicht nur kürzer, sondern hat den wesentlichen Vorteil:
+            //    gibt es irgendann mal eine weitere Klasse, abgeleitet von Artikel, geht Block A "automatisch"
+            //    Block B müsste man erweitern (aber womit weiß man ja vorher nicht)
+            //    man kann also Methoden aufrufen, die noch gar nicht programmiert sind
+            //    und das ist eine der wesentlichen Möglichkeiten der objektorientierten Progammierung
          }
       }
       s += ("Gesamtpreis: " + gesamtPreis);
